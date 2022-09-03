@@ -1,0 +1,20 @@
+# Set var "WDIR" to workdir
+<% if @args[0] %>
+<% WDIR=@args[0] %> 
+<% else %>
+<% WDIR=ENV["PWD"] %>
+<% end %>
+
+name: <%= WDIR.split('/').last  %>
+root: <%= @args[0] %>
+
+startup_window: talker
+windows:
+  - talker:
+      layout: even-vertical
+      panes:
+        - print -S 'ros2 run demo_nodes_cpp talker'
+  - listener:
+      layout: even-vertical
+      panes:
+        - print -S 'ros2 run demo_nodes_cpp listener'
