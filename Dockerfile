@@ -35,6 +35,5 @@ RUN apt-get autoremove -y \
 
 RUN echo "export DISABLE_AUTO_TITLE=true" >> /root/.zshrc
 RUN echo "source /opt/ros/humble/setup.zsh" >> /root/.zshrc
-RUN chmod 0700 /tmp
 
 CMD [ "tmuxinator", "start", "-p", "/root/.session.yml" ]
