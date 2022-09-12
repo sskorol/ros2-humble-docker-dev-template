@@ -52,7 +52,7 @@ elif [[ "$should_run" == true ]]; then
                --privileged \
                --gpus=all \
                -e DISPLAY=$DISPLAY \
-               -v $HOME/$workspace:/root/$workspace \
+               -v $HOME/$workspace:/root/$workspace:rw \
                -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
                -v $HOME/.Xauthority:/root/.Xauthority:ro \
                -v $PWD/.session.yml:/root/.session.yml \

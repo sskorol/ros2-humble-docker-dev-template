@@ -30,6 +30,13 @@ Note that the above configs are mapped as volumes to docker image.
 ./run.sh -w dev_ws -t [YOUR_IMAGE_NAME:TAG] -r
 ```
 
+### Development
+
+- Follow [this guide](https://code.visualstudio.com/docs/remote/containers) to prepare VSCode for remote development in a container.
+- Start the docker container via the command from the [Running](#running) section.
+- Open VSCode and [attach](https://code.visualstudio.com/docs/remote/attach-container) to the running container.
+- Open your ROS2 workspace and enjoy.
+
 ### Notes
 
 - Mouse is enabled by default
