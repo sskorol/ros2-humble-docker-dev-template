@@ -46,17 +46,22 @@ if [[ "$should_build" == false && "$should_run" == false ]] || [[ "$should_build
     help
 elif [[ "$should_run" == true ]]; then
     mkdir -p $HOME/$workspace
+    xhost +local:docker
     docker run -it \
                --rm \
                --net=host \
                --privileged \
                --gpus=all \
                -e DISPLAY=$DISPLAY \
+               -e PYTHONBUFFERED=1 \
+               -v /etc/timezone:/etc/timezone:ro \
+               -v /etc/localtime:/etc/localtime:ro \
                -v $HOME/$workspace:/root/$workspace:rw \
                -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
                -v $HOME/.Xauthority:/root/.Xauthority:ro \
                -v $PWD/.session.yml:/root/.session.yml \
                -v $PWD/.tmux.conf:/root/.tmux.conf \
+               --device=/dev/bus/usb:/dev/bus/usb \
                $image
 elif [[ "$should_build" == true ]]; then
    docker build --build-arg WORKSPACE=$workspace -t $image .
