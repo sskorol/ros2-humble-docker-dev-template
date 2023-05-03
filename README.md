@@ -16,7 +16,7 @@ git clone https://github.com/sskorol/ros2-humble-docker-dev-template.git && cd r
 ### Building
 
 ```shell
-./run.sh -w dev_ws -t [YOUR_IMAGE_NAME:TAG] -b
+./run.sh -w dev_ws -i [YOUR_IMAGE_NAME:TAG] -b
 ```
 
 ### Running
@@ -27,7 +27,7 @@ git clone https://github.com/sskorol/ros2-humble-docker-dev-template.git && cd r
 Note that the above configs are mapped as volumes to docker image.
 
 ```shell
-./run.sh -w dev_ws -t [YOUR_IMAGE_NAME:TAG] -r
+./run.sh -w dev_ws -i [YOUR_IMAGE_NAME:TAG] -r
 ```
 
 ### Development
